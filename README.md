@@ -1,6 +1,38 @@
 # SmartConsentApp
+🧠 Smart AI Consent Form Summary (Angular + Hugging Face)
+📄 Description
+This project is a smart AI-powered healthcare application built using Angular 15, designed to simplify complex medical consent forms into clear, understandable summaries for patients. The system uses NLP models (e.g., Hugging Face's BART) to automatically generate a concise, patient-friendly explanation of lengthy technical consent documents. Additionally, it supports multilingual translation using integrated services, making it accessible to patients in their native language (e.g., Hindi, Tamil).
+🔧 Features
+✅ Upload Consent Forms in .txt or .pdf formats
+🧠 AI Summarization of technical medical content using Hugging Face API
+🌐 Multilingual Translation of both full form and summary
+🧍‍♂️ Layperson-friendly output to ensure patients understand procedures and risks
+✍️ Digital Consent interface for entering name, procedure, and signature
+💾 Local Storage Support for form submission preview or history
+💡 Use Case
+A hospital or clinic can upload standard consent documents, and the system will generate a simplified explanation in the patient’s language, making the consent process faster, safer, and more inclusive — especially for those with limited health literacy or language barriers.
+🛠 Tech Stack
+Angular 15
+RxJS & HttpClient for API calls
+Hugging Face Transformers (facebook/bart-large-cnn) for summarization
+Google Translate API / Custom translation layer for multilingual support
+
+ 
+ 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.14.
+
+To run the project perfectly on local server,
+
+1. add environments folder in src
+2. create environment.ts file and add the below
+3. export const environment = {
+  production: false,
+  huggingFaceKey: 'YOUR HUGGING API KEY',
+};
+
+Download the dependencies by using npm install
+
 
 ## Development server
 
