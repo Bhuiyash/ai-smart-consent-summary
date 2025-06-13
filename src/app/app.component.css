@@ -1,0 +1,26 @@
+.side-by-side-container {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  justify-content: center;
+  animation: fadeIn 0.7s ease;
+}
+
+.side-by-side-container > * {
+  flex: 1 1 0;
+  max-width: 480px;
+}
+
+@media (max-width: 900px) {
+  .side-by-side-container {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .side-by-side-container > * {
+    max-width: 100%;
+  }
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px);}
+  to   { opacity: 1; transform: translateY(0);}
+}

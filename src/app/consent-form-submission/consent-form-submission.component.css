@@ -110,3 +110,42 @@
 .signature-actions button:hover{
    background: #b71c1c;
 }
+.form-input {
+  width: 100%;
+  padding: 8px 12px;
+  margin: 6px 0 12px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.form-input:focus {
+  border-color: #1976d2;
+  outline: none;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  margin: 12px 0;
+  font-size: 1rem;
+}
+
+.submit-btn {
+  background-color: #1976d2;
+  color: #fff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: background 0.2s;
+}
+
+.submit-btn:disabled {
+  background-color: #b0b0b0;
+  cursor: not-allowed;
+}

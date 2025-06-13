@@ -2,18 +2,13 @@
   <h2>Consent Form Submission</h2>
   <form [formGroup]="consentForm" (ngSubmit)="onSubmit()">
     <label for="name">Patient Name:</label>
-    <input id="name" formControlName="name" />
+    <input id="name" formControlName="name" class="form-input" />
     <div *ngIf="
         consentForm.get('name')?.invalid && consentForm.get('name')?.touched
       " class="error-msg">
       Name is required (min 2 characters).
     </div>
 
-    <!-- <label for="procedure">Procedure:</label>
-    <input id="procedure" formControlName="procedure" />
-    <div *ngIf="consentForm.get('procedure')?.invalid && consentForm.get('procedure')?.touched" class="error-msg">
-      Procedure is required.
-    </div> -->
     <div class="signature-section">
       <label>Patient Digital Signature:</label>
       <canvas #signaturePad width="300" height="100" class="signature-canvas"></canvas>
@@ -23,7 +18,7 @@
       <div *ngIf="signatureError" class="error-msg">Signature is required.</div>
     </div>
 
-    <label>
+    <label class="checkbox-label">
       <input type="checkbox" formControlName="consent" />
       I give my consent for the above procedure as I have read and understood
       the summary.
@@ -35,6 +30,6 @@
       You must give your consent.
     </div>
 
-    <button type="submit" [disabled]="!consentForm.valid">Submit</button>
+    <button type="submit" [disabled]="!consentForm.valid" class="submit-btn">Submit</button>
   </form>
 </div>
