@@ -1,0 +1,112 @@
+.consent-form-box {
+  max-width: 400px;
+  margin: 48px auto;
+  padding: 32px 28px 28px 28px;
+  background: #f7fafc;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(25, 118, 210, 0.10);
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.consent-form-box h2 {
+  margin-top: 0;
+  color: #1976d2;
+  font-size: 1.3rem;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.consent-form-box label {
+  display: block;
+  margin-top: 18px;
+  font-weight: 500;
+  color: #222;
+  font-size: 1rem;
+}
+
+.consent-form-box input[type="text"],
+.consent-form-box input[type="checkbox"] {
+  margin-top: 8px;
+}
+
+.consent-form-box input[type="text"] {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #b3c6e0;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: #fff;
+  transition: border 0.2s;
+  box-sizing: border-box;
+}
+
+.consent-form-box input[type="text"]:focus {
+  border-color: #1976d2;
+  outline: none;
+}
+
+.consent-form-box input[type="checkbox"] {
+  margin-right: 8px;
+  accent-color: #1976d2;
+  transform: scale(1.15);
+  vertical-align: middle;
+}
+
+.error-msg {
+  color: #d32f2f;
+  font-size: 0.95rem;
+  margin-top: 4px;
+}
+
+.consent-form-box button[type="submit"] {
+  margin-top: 24px;
+  padding: 12px 0;
+  background: linear-gradient(90deg, #1976d2 60%, #42a5f5 100%);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.08rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
+  width: 100%;
+}
+
+.consent-form-box button[type="submit"]:disabled {
+  background: #b0b0b0;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.signature-section {
+  margin-top: 20px;
+}
+
+.signature-canvas {
+  border: 1px solid #b3c6e0;
+  border-radius: 6px;
+  background: #fff;
+  display: block;
+  margin-bottom: 8px;
+  touch-action: none;
+}
+
+.signature-actions {
+  margin-bottom: 8px;
+}
+
+.signature-actions button {
+  background: #e53935;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-size: 0.98rem;
+  margin-right: 8px;
+}
+
+.signature-actions button:hover{
+   background: #b71c1c;
+}

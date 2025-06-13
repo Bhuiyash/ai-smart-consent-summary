@@ -1,0 +1,66 @@
+.form-container {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 24px 32px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+label {
+  display: block;
+  margin-top: 18px;
+  font-weight: 500;
+  color: #333;
+}
+
+input, select {
+  width: 100%;
+  padding: 8px 10px;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+button[type="submit"], button[type="button"] {
+  margin-top: 22px;
+  padding: 10px 18px;
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button[type="submit"]:disabled {
+  background: #b0b0b0;
+  cursor: not-allowed;
+}
+
+button[type="button"] {
+  background: #43a047;
+  margin-right: 10px;
+}
+
+.ai-box {
+  margin-top: 20px;
+  padding: 14px 16px;
+  background: #e3f2fd;
+  border-left: 4px solid #1976d2;
+  border-radius: 6px;
+}
+
+.ai-box h3 {
+  margin-top: 0;
+  font-size: 1.1rem;
+  color: #1976d2;
+}
+
+input[type="checkbox"] {
+  width: auto;
+  margin-right: 8px;
+}

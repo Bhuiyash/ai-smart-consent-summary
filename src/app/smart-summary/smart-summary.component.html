@@ -1,0 +1,45 @@
+<div class="form-box">
+  <h2 class="form-title">Upload Consent Form</h2>
+  <input
+    type="file"
+    class="file-input"
+    (change)="onFileSelected($event)"
+    accept=".txt,.pdf"
+  />
+
+  <label class="select-label">Select Language:</label>
+    <select class="language-select" [(ngModel)]="selectedLanguage">
+    <option *ngFor="let lang of languages" [value]="lang.code">{{ lang.label }}</option>
+  </select>
+<button class="generate-btn" (click)="processForm()" [disabled]="!rawText">
+    Generate Summary in {{ selectedLanguage | uppercase }}
+  </button>
+
+
+  <div class="summary-success" *ngIf="summaryText && !loading">
+    <p class="success-message">Summary generated successfully!</p>
+  </div>
+   <div *ngIf="loading" class="spinner-container">
+    <div class="spinner"></div>
+    <div>{{loadingSpinnerMessage}}</div>
+  </div>
+  <div *ngIf="originalTranslatedContent">
+    <h4>Original Form Content:</h4>
+    <div class="original-form-content">{{ originalTranslatedContent }}</div>
+  </div>
+ 
+
+  <div *ngIf="summaryText" class="summary-box">
+    <h3 class="summary-title">Summary (Translated):</h3>
+    <p class="summary-text">{{ summaryText }}</p>
+  </div>
+
+  <app-consent-form-submission *ngIf="summaryText"></app-consent-form-submission>
+
+  <!-- <label *ngIf="summaryText" class="checkbox-label">
+    <input type="checkbox" class="accept-checkbox" [(ngModel)]="accepted" />
+    I have read and understood the summary.
+  </label> -->
+
+  <!-- <button class="submit-btn" [disabled]="!accepted" (click)="submit()">Submit</button> -->
+</div>

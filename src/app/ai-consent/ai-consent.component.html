@@ -1,0 +1,33 @@
+<div *ngIf="loading">Generating content...</div>
+<div class="form-container">
+  <form [formGroup]="consentForm" (ngSubmit)="onSubmit()">
+    <label>Patient Name:</label>
+    <input formControlName="patientName" placeholder="Enter patient name" />
+
+    
+    <label>Procedure:</label>
+    <select formControlName="procedure">
+      <option value="" disabled selected>Select a procedure</option>
+      <option value="MRI">MRI</option>
+      <option value="CT Scan">CT Scan</option>
+      <option value="X-Ray">X-Ray</option>
+      <option value="Ultrasound">Ultrasound</option>
+      <option value="Blood Test">Blood Test</option>
+      <!-- Add more options as needed -->
+    </select>
+
+    <button type="button" (click)="generateConsent()">Generate Consent Info (AI)</button>
+
+    <div class="ai-box" *ngIf="aiGeneratedText">
+      <h3>AI-Generated Consent Information</h3>
+      <p>{{ aiGeneratedText }}</p>
+    </div>
+
+    <label>
+      <input type="checkbox" formControlName="consent" />
+      I have read and understood the consent.
+    </label>
+
+    <button type="submit" [disabled]="!consentForm.valid">Submit Consent</button>
+  </form>
+</div>
