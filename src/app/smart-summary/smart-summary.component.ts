@@ -43,6 +43,11 @@ export class SmartSummaryComponent {
     { code: 'ja', label: 'Japanese' },
     { code: 'ko', label: 'Korean' },
     { code: 'fr', label: 'French' }
+
+    // Add more languages as needed
+
+    // { code: 'es', label: 'Spanish' },
+    // { code: 'de', label: 'German' },
     
   ];
 
