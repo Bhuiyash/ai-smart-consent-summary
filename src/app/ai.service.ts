@@ -50,7 +50,7 @@ import { environment } from 'src/environments/environment';
 export class AiService {
   private modelUrl =
     'https://api-inference.huggingface.co/models/facebook/bart-large-cnn';
-  public apiCalled$ = new Subject<void>();
+  public apiCalled$ = new Subject<void>(); // Observable to track API calls
   constructor(private http: HttpClient) {}
 
   summarize(
@@ -75,7 +75,7 @@ export class AiService {
     return this.http.post<any>(this.modelUrl, body, { headers }).pipe(
       map((res) => {
         if (Array.isArray(res) && res[0]?.summary_text) {
-          this.apiCalled$.next();
+          this.apiCalled$.next();// Notify subscribers that the API was called
           return { text: res[0].summary_text };
         } else if (res?.error) {
           throw new Error(`Hugging Face API Error: ${res.error}`);
