@@ -39,46 +39,50 @@
 //   }
 // }
 
-
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, map } from 'rxjs';
+import { Observable, map, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AiService {
-  private modelUrl = 'https://api-inference.huggingface.co/models/facebook/bart-large-cnn';
-
+  private modelUrl =
+    'https://api-inference.huggingface.co/models/facebook/bart-large-cnn';
+  public apiCalled$ = new Subject<void>();
   constructor(private http: HttpClient) {}
 
- summarize(text: string, simplifyForLayman: boolean = true): Observable<{ text: string }> {
-  const headers = new HttpHeaders({
-    'Content-Type': 'application/json',
-    ...(environment.huggingFaceKey && {
-      Authorization: `Bearer ${environment.huggingFaceKey}`
-    })
-  });
+  summarize(
+    text: string,
+    simplifyForLayman: boolean = true
+  ): Observable<{ text: string }> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      ...(environment.huggingFaceKey && {
+        Authorization: `Bearer ${environment.huggingFaceKey}`,
+      }),
+    });
 
-  const prompt = simplifyForLayman
-    ? `Summarize the following medical consent form so that an average person with no medical knowledge can understand it easily:\n\n${text}`
-    : text;
+    const prompt = simplifyForLayman
+      ? `Summarize the following medical consent form so that an average person with no medical knowledge can understand it easily:\n\n${text}`
+      : text;
 
-  const body = {
-    inputs: prompt
-  };
+    const body = {
+      inputs: prompt,
+    };
 
-  return this.http.post<any>(this.modelUrl, body, { headers }).pipe(
-    map(res => {
-      if (Array.isArray(res) && res[0]?.summary_text) {
-        return { text: res[0].summary_text };
-      } else if (res?.error) {
-        throw new Error(`Hugging Face API Error: ${res.error}`);
-      } else {
-        return { text: 'Unable to summarize text.' };
-      }
-    })
-  );
-}
+    return this.http.post<any>(this.modelUrl, body, { headers }).pipe(
+      map((res) => {
+        if (Array.isArray(res) && res[0]?.summary_text) {
+          this.apiCalled$.next();
+          return { text: res[0].summary_text };
+        } else if (res?.error) {
+          throw new Error(`Hugging Face API Error: ${res.error}`);
+        } else {
+          return { text: 'Unable to summarize text.' };
+        }
+      })
+    );
+  }
 }
